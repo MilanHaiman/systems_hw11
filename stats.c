@@ -6,7 +6,9 @@
 int main(){
     struct stat * buffer=malloc(sizeof(struct stat));
     stat("./stats.c",buffer);
+    printf("Stats for our C file:\n");
     printf("File Size: %ld \n",buffer->st_size);
     printf("Mode : %o\n",buffer->st_mode);
     printf("Time Last Accesed: %s\n", ctime(&(buffer->st_atime)));
+    free(buffer);
 }
